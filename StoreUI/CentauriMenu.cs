@@ -40,13 +40,7 @@ public class CentauriMenu : IMenu
                     Console.WriteLine($"How many {selectedprod.ProductName} would you like to buy?");
                     int input2 = int.Parse(Console.ReadLine());
                     int prodID = selectedprod.ProductID;
-                    LineItem newLI = new LineItem
-                    {
-                        Item = selectedprod,
-                        Quantity = input2,
-                        ProductID = selectedprod.ProductID,
-                        OrderId = orderID
-                    };
+                    LineItem newLI = new LineItem(selectedprod, input2, orderID, selectedprod.ProductID);
 
                     if(CurrentContext.lineItems == null)
                     {
@@ -58,14 +52,8 @@ public class CentauriMenu : IMenu
                     if(CurrentContext.Cart == null)
                     {
                         
-                        Order newOrder = new Order
-                        {
-                            OrderDate = date,
-                            OrderNumber = orderID, 
-                            StoreId = CurrentContext.currentStore.StoreID, 
-                            CustomerId = Customer.CId,
-                            Total = currTotal
-                        };
+                        Order newOrder = new Order(Customer.CId, orderID, CurrentContext.currentStore.StoreID, date, currTotal);
+
                         CurrentContext.Cart = newOrder;
                     }
                     else if(CurrentContext.Cart != null)

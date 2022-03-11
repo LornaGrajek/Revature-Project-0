@@ -17,11 +17,7 @@ public class LoginMenu : IMenu
         string username = Console.ReadLine();
         Console.WriteLine("Password: ");
         string password = Console.ReadLine();
-        Customer returnCustomer = new Customer
-            {
-                UserName = username,
-                Password = password,
-            };
+        Customer returnCustomer = new Customer(username, password);
         int custID = _bl.GetCustomerID(username);
         Customer.CId = custID;
         bool ifUsername = allCustomers.Exists(x => x.UserName == returnCustomer.UserName);

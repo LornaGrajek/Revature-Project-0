@@ -50,18 +50,11 @@ public class EditEarth : IMenu
                         System.Console.WriteLine("Quantity: ");
                         int quant = int.Parse(Console.ReadLine());
                         
-                        Product newProd = new Product{
-                            ProductName = name,
-                            Description = describe,
-                            Price = price
-                        };
+                        Product newProd = new Product(name, describe, price);
                         _bl.AddProduct(newProd);
                         int productID = _bl.GetProductID(newProd.ProductName);
-                        Inventory newInvent = new Inventory{
-                            StoreId = CurrentContext.currentStore.StoreID,
-                            Quantity = quant,
-                            ProductID = productID
-                        };
+                        Inventory newInvent = new Inventory(CurrentContext.currentStore.StoreID, quant, productID);
+
                         _bl.AddProductToInventory(productID, newInvent);
                         System.Console.WriteLine($"{newProd.ProductName} has been added!\n[1] View New Inventory\n[2] Go Back");
                         int choice = int.Parse(Console.ReadLine());
