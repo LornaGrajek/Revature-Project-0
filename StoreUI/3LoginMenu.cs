@@ -14,9 +14,9 @@ public class LoginMenu : IMenu
         List<Customer> allCustomers = _bl.GetAllCustomers();
         Console.WriteLine("Welcome back! Please log in: ");
         Console.WriteLine("Name: ");
-        string username = Console.ReadLine();
+        string? username = Console.ReadLine();
         Console.WriteLine("Password: ");
-        string password = Console.ReadLine();
+        string? password = Console.ReadLine();
         Customer returnCustomer = new Customer(username, password);
         int custID = _bl.GetCustomerID(username);
         Customer.CId = custID;

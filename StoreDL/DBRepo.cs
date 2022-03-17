@@ -119,10 +119,10 @@ public class DBRepo : IRepo
         List<Product> allProducts = new List<Product>();
         using SqlConnection connection = new SqlConnection(_connectionString);
         string prodSelect = "SELECT p.ProductID, p.Name, p.Description, p.Price, i.StoreId, i.Quantity\nFROM Product p\nINNER JOIN Inventory i ON p.ProductID = i.ProductId\n WHERE i.StoreId = 1\nORDER BY p.ProductID";
-        DataSet ProdSet = new DataSet();
+        DataSet? ProdSet = new DataSet();
         using SqlDataAdapter prodAdapter = new SqlDataAdapter(prodSelect, connection);
         prodAdapter.Fill(ProdSet, "Product");
-        DataTable ?ProductTable = ProdSet.Tables["Product"];
+        DataTable? ProductTable = ProdSet.Tables["Product"];
         foreach(DataRow row in ProductTable.Rows)
         {
             Product prod = new Product();
@@ -142,7 +142,7 @@ public class DBRepo : IRepo
         DataSet ProdSet = new DataSet();
         using SqlDataAdapter prodAdapter = new SqlDataAdapter(prodSelect, connection);
         prodAdapter.Fill(ProdSet, "Product");
-        DataTable ?ProductTable = ProdSet.Tables["Product"];
+        DataTable? ProductTable = ProdSet.Tables["Product"];
         foreach(DataRow row in ProductTable.Rows)
         {
             Product prod = new Product();

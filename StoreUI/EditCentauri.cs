@@ -42,9 +42,9 @@ public class EditCentauri : IMenu
                 {
                     case "1":
                         System.Console.WriteLine("Product Name: ");
-                        string name = Console.ReadLine();
+                        string? name = Console.ReadLine();
                         System.Console.WriteLine("Product Description: ");
-                        string describe = Console.ReadLine();
+                        string? describe = Console.ReadLine();
                         System.Console.WriteLine("Price: "); 
                         decimal price = decimal.Parse(Console.ReadLine());
                         System.Console.WriteLine("Quantity: ");
@@ -70,21 +70,27 @@ public class EditCentauri : IMenu
                             {
                                 System.Console.WriteLine($"\n[{item.Product.ProductID}] {item.Product.ProductName}: {item.Product.Description}\nPrice: ${item.Product.Price}\tQuantity: {item.Inventory.Quantity}");
                             }
-                            int prodID = int.Parse(Console.ReadLine());
+                            string? selection = Console.ReadLine();
+                            int prodID;
+                            bool pSuccess = Int32.TryParse(selection, out prodID);
                             System.Console.WriteLine("How many items would you like to add?");
-                            int quantity = int.Parse(Console.ReadLine());
+                            selection = Console.ReadLine();
+                            int quantity;
+                            bool parSuccess = Int32.TryParse(selection, out quantity);
                             _bl.RestockCentauriInventory(prodID, quantity);
                             System.Console.WriteLine("\n[1] Change more inventory\n[2] Go Back to Main Menu");
-                            string response =Console.ReadLine();
-                            if (int.Parse(response) == 1)
+                            string? input = Console.ReadLine();
+                            int response;
+                            bool parseSuccess = Int32.TryParse(input, out response);
+                            if (response == 1)
                             {
                                 
                             }
-                            else if (int.Parse(response) == 2)
+                            else if (response == 2)
                             {
                                 MenuFactory.GetMenu("editcentauri").Start();
                             }
-                            else if (string.IsNullOrEmpty(response));
+                            else if (string.IsNullOrEmpty(input));
                             {
                                 System.Console.WriteLine("Invalid Response");
                                 exit = true;

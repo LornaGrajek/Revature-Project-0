@@ -22,5 +22,4 @@ public interface IBL
     void RestockCentauriInventory(int prodID, int quantity);
     int GetProductID(string productname);
     void AddProductToInventory(int prodID, Inventory inventToAdd);
-
 }

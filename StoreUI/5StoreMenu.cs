@@ -12,21 +12,26 @@ public class StoreMenu : IMenu
         List<Storefront> allStores = _bl.GetAllStores();
         for (int i = 0; i < allStores.Count; i++)
         {
-            Console.WriteLine($"\n[{i}] {allStores[i].Name} located on {allStores[i].Address}");
+            Console.WriteLine($"\n[{i + 1}] {allStores[i].Name} located on {allStores[i].Address}");
         }
-        string selection = Console.ReadLine();
-        CurrentContext.currentStore = allStores[int.Parse(selection)];
-        switch (selection)
-        {
-            case "0":
-                MenuFactory.GetMenu("earth").Start();
-            break;
-            case "1":
-                MenuFactory.GetMenu("centauri").Start();
-            break;
-            default:
-                Console.WriteLine("Please enter a valid number");
-            break;
+        string? select = Console.ReadLine();
+        int selection;
+        bool parse = Int32.TryParse(select, out selection);
+
+        if(parse && selection >= 0 && selection < allStores.Count){
+            CurrentContext.currentStore = selection;
+            switch (selection)
+            {
+                case 1:
+                    MenuFactory.GetMenu("earth").Start();
+                break;
+                case 2:
+                    MenuFactory.GetMenu("centauri").Start();
+                break;
+                default:
+                    Console.WriteLine("Please enter a valid number");
+                break;
+            }
         }
     }
 }

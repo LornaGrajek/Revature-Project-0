@@ -18,9 +18,9 @@ public class MainMenu : IMenu
         {
             Console.WriteLine("Please Select from the Following: ");
             Console.WriteLine("[1] Log-in \t[2] Sign-Up\t[3] Exit");
-            string input = Console.ReadLine();
+            string? input = Console.ReadLine();
 
-            if(string.IsNullOrWhiteSpace(input))
+            if(!string.IsNullOrWhiteSpace(input) && input <= 3 && input > 0)
             {
                 switch (input)
                 {
@@ -29,11 +29,10 @@ public class MainMenu : IMenu
                     break;
                     case "2":
                         Console.WriteLine("Greetings! What is your Earth name?");
-                        string username = Console.ReadLine();
+                        string? username = Console.ReadLine();
                         Console.WriteLine("Please enter a password: ");
-                        string password = Console.ReadLine();
+                        string? password = Console.ReadLine();
                         Customer newCustomer = new Customer(username, password);
-                        
                         _bl.AddCustomer(newCustomer);
                         Console.WriteLine($"Thank you {newCustomer.UserName} for creating an account.");
                         MenuFactory.GetMenu("customer").Start();
