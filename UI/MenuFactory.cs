@@ -1,11 +1,11 @@
-namespace UI;
+// namespace UI;
 
 // public static class MenuFactory
 // {
 //     public static IMenu GetMenu(string menuString)
 //     {
 //         menuString = menuString.ToLower();
-//         string connectionString = File.ReadAllText("connectionString.txt");
+//         string connectionString = File.ReadAllText("connectionstring.txt");
 //         IRepo repo = new DBRepo(connectionString);
 //         IBL bl = new UFOBL(repo);
 

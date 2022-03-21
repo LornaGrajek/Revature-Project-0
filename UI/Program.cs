@@ -1,6 +1,6 @@
 ﻿global using Models;
-global using DL;
-global using BL;
+global using StoreDL;
+global using StoreBL;
 global using UI;
 global using System.Collections.Generic;
 global using System.Linq;
