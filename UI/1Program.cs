@@ -2,6 +2,7 @@
 global using StoreDL;
 global using StoreBL;
 global using UI;
+global using CustomException;
 global using System.Collections.Generic;
 global using System.Linq;
 // global using Serilog;
@@ -9,5 +10,5 @@ global using System.Linq;
 // Log.Logger = new LoggerConfiguration()
 //     .WriteTo.File(@"..\StoreDL\logger.txt")
 //     .CreateLogger();
-// MenuFactory.GetMenu("main").Start();
+MenuFactory.GetMenu("main").Start();
     

@@ -1,45 +1,48 @@
-// namespace UI;
+namespace UI;
 
-// public static class MenuFactory
-// {
-//     public static IMenu GetMenu(string menuString)
-//     {
-//         menuString = menuString.ToLower();
-//         string connectionString = File.ReadAllText("connectionstring.txt");
-//         IRepo repo = new DBRepo(connectionString);
-//         IBL bl = new UFOBL(repo);
+public static class MenuFactory
+{
+    public static IMenu GetMenu(string menuString)
+    {
+        menuString = menuString.ToLower();
+        string connectionString = File.ReadAllText("connectionstring.txt");
+        IRepo repo = new DBRepo(connectionString);
+        IBL bl = new UFOBL(repo);
 
-//         switch(menuString)
-//         {
-//             case "main":
-//                 return new MainMenu(bl);
+        switch(menuString)
+        {
+            case "main":
+                return new MainMenu(bl);
+
+            case "signup":
+                return new SignUp(bl);
             
-//             case "login":
-//                 return new LoginMenu(bl);
+            case "login":
+                return new LoginMenu(bl);
 
-//             case "customer":
-//                 return new CustomerMenu(bl);
+            case "customer":
+                return new CustomerMenu(bl);
             
-//             case "store":
-//                 return new StoreMenu(bl);
+            // case "store":
+            //     return new StoreMenu(bl);
 
-//             case "earth":
-//                 return new EarthMenu(bl);
+            // case "earth":
+            //     return new EarthMenu(bl);
             
-//             case "centauri":
-//                 return new CentauriMenu(bl);
+            // case "centauri":
+            //     return new CentauriMenu(bl);
 
-//             case "manager":
-//                 return new ManagerMenu(bl);
+            // case "manager":
+            //     return new ManagerMenu(bl);
             
-//             case "editearth":
-//                 return new EditEarth(bl);
+            // case "editearth":
+            //     return new EditEarth(bl);
             
-//             case "editcentauri":
-//                 return new EditCentauri(bl);
+            // case "editcentauri":
+            //     return new EditCentauri(bl);
 
-//             default:
-//                 return new MainMenu(bl);
-//         }
-//     }
-// }
+            default:
+                return new MainMenu(bl);
+        }
+    }
+}
