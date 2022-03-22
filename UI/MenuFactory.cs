@@ -23,14 +23,11 @@ public static class MenuFactory
             case "customer":
                 return new CustomerMenu(bl);
             
-            // case "store":
-            //     return new StoreMenu(bl);
+            case "store":
+                return new StoreSelectionMenu(bl);
 
-            // case "earth":
-            //     return new EarthMenu(bl);
-            
-            // case "centauri":
-            //     return new CentauriMenu(bl);
+            case "shop":
+                return new ShopMenu(bl);
 
             // case "manager":
             //     return new ManagerMenu(bl);

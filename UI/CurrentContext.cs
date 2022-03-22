@@ -16,7 +16,7 @@ public static class CurrentContext
         {
             int Count = lineItems.Count;
             LineItem lineitem = lineItems.Last();
-            total1 += lineitem.Item.Price * lineitem.Quantity;
+            total1 += lineitem.Item!.Price * lineitem.Quantity;
         }
         return total1;
     }
