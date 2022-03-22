@@ -6,7 +6,7 @@ public class Order
     {
         this.LineItems = new List<LineItem>();
     }
-    public Order(int customerId, int orderId, int storeId, DateTime orderdate, int total){
+    public Order(int customerId, int orderId, int storeId, DateTime orderdate, decimal total){
         this.CustomerId = customerId;
         this.OrderNumber = orderId;
         this.StoreId = storeId;
@@ -20,12 +20,12 @@ public class Order
     public int StoreId { get; set; }
     public List<LineItem> LineItems { get; set; }
     public decimal Total { get; set; }
-    public void ToDataRow(ref DataRow row)
-    {
-        row["OrderId"] = this.OrderNumber;
-        row["CustomerId"] = this.CustomerId;
-        row["StoreId"] = this.StoreId;
-        row["Total"] = this.Total;
-        row["OrderDate"] = this.OrderDate;
-    }
+    // public void ToDataRow(ref DataRow row)
+    // {
+    //     row["OrderId"] = this.OrderNumber;
+    //     row["CustomerId"] = this.CustomerId;
+    //     row["StoreId"] = this.StoreId;
+    //     row["Total"] = this.Total;
+    //     row["OrderDate"] = this.OrderDate;
+    // }
 }

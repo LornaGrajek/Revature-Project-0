@@ -14,7 +14,6 @@ public static class CurrentContext
         decimal total1 = 0;
         if(lineItems?.Count > 0)
         {
-            int Count = lineItems.Count;
             LineItem lineitem = lineItems.Last();
             total1 += lineitem.Item!.Price * lineitem.Quantity;
         }
