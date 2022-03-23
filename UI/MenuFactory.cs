@@ -29,14 +29,14 @@ public static class MenuFactory
             case "shop":
                 return new ShopMenu(bl);
 
-            // case "manager":
-            //     return new ManagerMenu(bl);
+            case "manager":
+                return new ManagerMenu(bl);
             
-            // case "editearth":
-            //     return new EditEarth(bl);
-            
-            // case "editcentauri":
-            //     return new EditCentauri(bl);
+            case "edit":
+                return new EditStore(bl);
+
+            case "inventory":
+                return new EditInventory(bl);
 
             default:
                 return new MainMenu(bl);
