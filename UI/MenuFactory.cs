@@ -5,8 +5,8 @@ public static class MenuFactory
     public static IMenu GetMenu(string menuString)
     {
         menuString = menuString.ToLower();
-        string connectionString = File.ReadAllText("connectionstring.txt");
-        IRepo repo = new DBRepo(connectionString);
+        string connectionstring = File.ReadAllText("connectionstring.txt");
+        IRepo repo = new DBRepo(connectionstring);
         IBL bl = new UFOBL(repo);
 
         switch(menuString)

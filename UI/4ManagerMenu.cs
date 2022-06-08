@@ -43,7 +43,7 @@ public class ManagerMenu : IMenu
                     List<Storefront> allStores = _bl.GetAllStores();
                     for (int i = 0; i < allStores.Count; i++)
                     {
-                        Console.WriteLine($"\n[{i + 1}] {allStores[i].Name} located on {allStores[i].Address}");
+                        Console.WriteLine($"\n[{i}] {allStores[i].Name} located on {allStores[i].Address}");
                     }
                     
                     parse = Int32.TryParse(Console.ReadLine(), out choice);
